@@ -1,0 +1,17 @@
+//- for loop for creating dynamic div
+
+- for ( i=1; i <= 4 ; i++ )
+  div( id="div" + i )
+
+
+//- You can also loop through an array:
+
+- const arr = ["about", "portfolio", "contact"]
+  each val in arr
+    div( id=val )  
+
+//- And use the item index:
+
+- var arr1 = ["about", "portfolio", "contact"]
+  each val, i in arr1
+    div( id=val attr=i )    
