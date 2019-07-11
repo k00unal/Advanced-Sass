@@ -1,22 +1,40 @@
-HOW CAN I IMPORT AN EXISTING FOLDER INTO MY REPOSITORY?
+Create a new repository on GitHub. To avoid errors, do not initialize the new repository with README, license, or gitignore files. You can add these files after your project has been pushed to GitHub.
 
-1. If not already done, create your repository on git.epfl.ch
+Create New Repository drop-down
+Open Git Bash.
 
-2. Go to your project folder :
-   cd /path/to/my/project
+Change the current working directory to your local project.
 
-3. Add your project files to the repository :
-   git init git add .
-   git commit -m "Initial import"
+Initialize the local directory as a Git repository.
 
-4. Launch the following command, replace <username> with your GASPAR username and <repository> with your repository name :
+git init
+Add the files in your new local repository. This stages them for the first commit.
 
-git remote add origin https://<username>@git.epfl.ch/repo/<repository>.git
+git add .
 
-5. Push the files on the remote server
+# Adds the files in the local repository and stages them for commit. To unstage a file, use 'git reset HEAD YOUR-FILE'.
 
-git push -u origin master
+Commit the files that you've staged in your local repository.
 
-After this initial import, pushing your changes will just require this command :
+git commit -m "First commit"
 
-git push
+# Commits the tracked changes and prepares them to be pushed to a remote repository. To remove this commit and modify the file, use 'git reset --soft HEAD~1' and commit and add the file again.
+
+At the top of your GitHub repository's Quick Setup page, click to copy the remote repository URL.
+
+Copy remote repository URL field
+In the Command prompt, add the URL for the remote repository where your local repository will be pushed.
+
+git remote add origin remote repository URL
+
+# Sets the new remote
+
+git remote -v
+
+# Verifies the new remote URL
+
+Push the changes in your local repository to GitHub.
+
+git push origin master
+
+# Pushes the changes in your local repository up to the remote repository you specified
