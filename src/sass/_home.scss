@@ -1,0 +1,117 @@
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+  padding: 0;
+}
+
+
+.card-box {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 12px;
+  &.summary {
+    padding: 0;
+    > {
+      .background {
+        display: block;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+      }
+      .information {
+        color: #333;
+        border-top: 1px solid #eee;
+        padding: 8px 12px;
+        > {
+          .title {
+            font-weight: bold;
+          }
+          div:not(:last-child) {
+            margin-bottom: 4px;
+          }
+        }
+      }
+    }
+    .domain {
+      color: #888;
+    }
+  }
+}
+
+.tweets-container {
+  margin: auto;
+  max-width: 600px;
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      color: #B33;
+      .name {
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  p {
+    margin-top: 0;
+  }
+  
+}
+
+.tweets-header {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: -1px;
+}
+
+.tweets-container > .tweet:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.tweet {
+  position: relative;
+  border-radius: 0;
+  padding-left: 72px;
+  margin-bottom: -1px;
+  > {
+    .author > {
+      .avatar {
+        position: absolute;
+        border-radius: 4px;
+        top: 12px;
+        left: 12px;
+        width: 48px;
+        height: 48px;
+      }
+      .name {
+        font-weight: bold;
+      }
+      .username {
+        color: #888;
+      }
+    }
+    .actions > {
+      .fa {
+        color: #888;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 12px;
+        margin-right: 36px;
+      }
+      .fa-reply:hover {
+        color: dodgerblue;
+      }
+      .fa-retweet:hover {
+        color: limegreen;
+      }
+      .fa-heart:hover {
+        color: #B33;
+      }
+    }
+  }
+}
