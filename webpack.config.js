@@ -52,7 +52,8 @@ var config = {
       "../src/sass/app.scss",
       "../src/js/app.js",
       "../src/typescript/index.ts"
-    ]
+    ],
+    test: ["../src/sass/test.scss"]
   },
   output: {
     path: dist,
