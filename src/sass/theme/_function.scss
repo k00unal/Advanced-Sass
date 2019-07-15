@@ -1,0 +1,23 @@
+@import './variables';
+
+
+// creating theme
+@function theme-color($key: 'primary', $variant: 'base') {
+    $map: map-get($theme-colors, $key);
+    @return map-get($map, $variant);
+    @error "Invalid theme name: `#{$key}`.";
+}
+
+
+// create different color variation
+@function color-variation($color) {
+    @if map-has-key($colors, $color) {
+      @return map-get($colors, $color);
+    }
+    
+    @error "Invalid color name: `#{$color}`.";
+    // @warn "Invalid color name: `#{$color}`.";
+    // @debug "Invalid color name: `#{$color}`.";
+}
+
+
