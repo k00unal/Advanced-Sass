@@ -1,32 +1,53 @@
 // Color palettes
 
 $theme-colors: (
-  'primary': (
-    'base': #384ea9,
-    'light': #e4efff,
-    'dark': #273677
+  "primary": (
+    "base": #384ea9,
+    "light": #e4efff,
+    "dark": #273677
   ),
-  'accent': (
-    'base': #f08110,
-    'light': #ff8100,
-    'dark': #e47f17
+  "accent": (
+    "base": #f08110,
+    "light": #ff8100,
+    "dark": #e47f17
   ),
-  'foreground': (
-    'base': #393939,
-    'light': #6e6e6e,
-    'dark': #111
+  "foreground": (
+    "base": #393939,
+    "light": #6e6e6e,
+    "dark": #111
   ),
-  'background': (
-    'base': #f8f5f5,
-    'light': #fff,
-    'dark': #ddd
+  "background": (
+    "base": #f8f5f5,
+    "light": #fff,
+    "dark": #ddd
   )
 );
-
 
 $colors: (
   brand-red: #c0392b,
   brand-blue: #2980b9,
   text-gray: #2c3e50,
   text-silver: #bdc3c7
+);
+
+// creating dark and light theme
+$themes: (
+  light: (
+    backgroundColor: #fff,
+    textColor: #408bbd,
+    buttonTextColor: #408bbd,
+    buttonTextTransform: none,
+    buttonTextHoverColor: #61b0e7,
+    buttonColor: #fff,
+    buttonBorder: 2px solid #fff
+  ),
+  dark: (
+    backgroundColor: #222,
+    textColor: #ddd,
+    buttonTextColor: #aaa,
+    buttonTextTransform: uppercase,
+    buttonTextHoverColor: #ddd,
+    buttonColor: #333,
+    buttonBorder: 1px solid #aaa
+  )
 );

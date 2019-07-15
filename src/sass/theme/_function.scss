@@ -1,23 +1,31 @@
-@import './variables';
+@import "./variables";
 
-
-// creating theme
-@function theme-color($key: 'primary', $variant: 'base') {
-    $map: map-get($theme-colors, $key);
-    @return map-get($map, $variant);
-    @error "Invalid theme name: `#{$key}`.";
+// output key value pair automatically
+@each $color-name, $color-code in $colors {
+  .color-#{$color-name} {
+    background-color: $color-code;
+  }
 }
-
 
 // create different color variation
 @function color-variation($color) {
-    @if map-has-key($colors, $color) {
-      @return map-get($colors, $color);
-    }
-    
-    @error "Invalid color name: `#{$color}`.";
-    // @warn "Invalid color name: `#{$color}`.";
-    // @debug "Invalid color name: `#{$color}`.";
+  @if map-has-key($colors, $color) {
+    @return map-get($colors, $color);
+  }
+
+  @error "Invalid color name: `#{$color}`.";
+  // @warn "Invalid color name: `#{$color}`.";
+  // @debug "Invalid color name: `#{$color}`.";
 }
 
+// creating theme with colors
+@function theme-color($key: "primary", $variant: "base") {
+  $map: map-get($theme-colors, $key);
+  @return map-get($map, $variant);
+  @error "Invalid theme name: `#{$key}`.";
+}
 
+// creating dark and light theme
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
