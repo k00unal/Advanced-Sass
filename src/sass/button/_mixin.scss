@@ -1,0 +1,11 @@
+@import './variable';
+
+// creating button mixin
+@mixin btn-modifiers {
+    @each $name, $hex in $btn {
+        @debug "debug output: #{$hex}";
+      &__#{$name} {
+        color: $hex;
+      }
+    }
+  }

@@ -1,0 +1,6 @@
+@import './mixin';
+
+// creating button mixin
+.button {
+    @include btn-modifiers;
+  }
