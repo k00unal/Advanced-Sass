@@ -1,0 +1,16 @@
+$root-font-size: 16px;
+
+
+@function calculateRem($size) {
+    $remSize: $size /$root-font-size;
+    @return #{$remSize}rem;
+}
+
+@mixin rem($size) {
+    font-size: $size; //Fallback in px
+    font-size: calculateRem($size);
+}
+
+.rem-fallback {
+    @include rem(32px);
+}

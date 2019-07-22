@@ -1,27 +1,2 @@
-$base-font-size: 16px;
-
-html {
-    font-size: $base-font-size;
-}
-
-
-@function em($px, $base: $base-font-size) {
-    // @debug #{$px};
-    @return ($px / $base) * 1em;
-}
-
-.dynamicfont-size {
-    font-size: em(20px);
-}
-
-
-// another way same output
-$browser-context: 16; // Default
-
-@function em($pixels, $context: $browser-context) {
-    @return #{$pixels/$context}em
-}
-
-.dynamicfont-size {
-    font-size: em(20);
-}
+@import './em';
+@import './rem';
