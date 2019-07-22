@@ -1,0 +1,22 @@
+@import './link-mixin';
+
+$a-tags: 'a, a:active, a:hover, a:visited';
+$a-tags-hover: 'a:active, a:hover';
+ 
+#{$a-tags} {
+  color: red;
+  text-decoration: none;
+}
+#{$a-tags-hover} {
+  color: blue;
+}
+
+
+.link {
+    #{$a-tags} {
+      color: blue;
+      text-decoration: none;
+    }
+     
+}
+

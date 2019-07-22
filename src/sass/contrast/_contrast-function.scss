@@ -11,6 +11,6 @@
 
 
 .contrast-color {
-    // @include contrast('dark');
-    @include contrast('dark', 'secondary'); //for more faded content 
+    color:contrast('dark', 'secondary'); //function
+    @include contrast('dark', 'secondary'); //used as mixin for more faded content 
 }
