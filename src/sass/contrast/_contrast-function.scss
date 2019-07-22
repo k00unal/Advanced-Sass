@@ -1,0 +1,16 @@
+@import './contrast-colors';
+
+@function contrast($background: 'light', $type: 'primary') {
+    $map: map-get($contrast-colors, $background);
+    @return map-get($map, $type);
+}
+  
+@mixin contrast($background: 'light', $type: 'primary') {
+    color: contrast($background, $type)
+}
+
+
+.contrast-color {
+    // @include contrast('dark');
+    @include contrast('dark', 'secondary'); //for more faded content 
+}
