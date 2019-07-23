@@ -1,0 +1,72 @@
+$breakpoints: (
+    ('xs', 480px),
+    ('s', 624px),
+    ('sm', 768px),
+    ('m', 896px),
+    ('md', 1024px),
+    ('l', 1195px),
+    ('lg', 1366px),
+);
+
+// mobile-first
+// My mobile-first mixin is used when you want something to happen from a specific device width.
+// like mobile first approach
+
+@mixin mobile-first($media) {
+    @each $breakpoint in $breakpoints {
+         @if $media == nth($breakpoint, 1) {
+              @media (min-width: #{nth($breakpoint, 2)})  { @content; }
+              @debug #{nth($breakpoint, 2)};
+         }
+    }
+}
+
+// desktop-first
+// My desktop-first mixin is used when you want something to happen till a specific device width.
+// like desktop-first approach
+
+@mixin desktop-first($media) {
+    @each $breakpoint in $breakpoints {
+         @if $media == nth($breakpoint, 1) {
+              @media (max-width: #{nth($breakpoint, 2)})  { @content; }
+         }
+    }
+}
+
+// media-range
+// media screen range between mediaquery
+@mixin media-range($media) {
+    @for $i from 1 through length($breakpoints) {
+        $breakpoint: nth($breakpoints, $i);
+        $name: nth($breakpoint, 1);
+        $value: nth($breakpoint, 2);
+ 
+        @if $media == $name {
+            @if $i == 1 {
+                @media (max-width: #{$value})  { @content; }
+            } @else if $i == length($breakpoints) {
+                @media (min-width: #{$value})  { @content; }
+            } @else {
+                $next_breakpoint: nth($breakpoints, $i + 1);
+                $next_name: nth($next_breakpoint, 1);
+                $next_value: nth($next_breakpoint, 2);
+ 
+                @media (min-width: #{$value}) and (max-width: #{$next_value - 1px}) { @content; }
+            }
+        }
+   }
+}
+
+
+.breakpoint {
+    background: red;
+    @include mobile-first(xs) {
+        background: green;
+    }
+    @include desktop-first(xs) {
+        background: orange;
+    }
+    @include media-range(sm) {
+        background: blue;
+    }
+}
