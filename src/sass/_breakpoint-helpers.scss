@@ -16,7 +16,7 @@ $breakpoints: (
     @each $breakpoint in $breakpoints {
          @if $media == nth($breakpoint, 1) {
               @media (min-width: #{nth($breakpoint, 2)})  { @content; }
-              @debug #{nth($breakpoint, 2)};
+            //   @debug #{nth($breakpoint, 2)};
          }
     }
 }
@@ -43,11 +43,14 @@ $breakpoints: (
  
         @if $media == $name {
             @if $i == 1 {
+                // @debug max #{$i};
                 @media (max-width: #{$value})  { @content; }
             } @else if $i == length($breakpoints) {
                 @media (min-width: #{$value})  { @content; }
+                // @debug min #{$i};
             } @else {
                 $next_breakpoint: nth($breakpoints, $i + 1);
+                // @debug next_breakpoint #{nth($breakpoints, $i + 1)};
                 $next_name: nth($next_breakpoint, 1);
                 $next_value: nth($next_breakpoint, 2);
  
@@ -66,7 +69,7 @@ $breakpoints: (
     @include desktop-first(xs) {
         background: orange;
     }
-    @include media-range(sm) {
+    @include media-range(md) {
         background: blue;
     }
 }
